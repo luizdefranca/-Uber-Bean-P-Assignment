@@ -13,8 +13,6 @@
 		257CB5AB228F18D600E4D858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257CB5AA228F18D600E4D858 /* Assets.xcassets */; };
 		257CB5AE228F18D600E4D858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 257CB5AC228F18D600E4D858 /* LaunchScreen.storyboard */; };
 		257CB5B1228F18D600E4D858 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CB5B0228F18D600E4D858 /* main.m */; };
-		257CB5BB228F18D600E4D858 /* Uber_BeanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CB5BA228F18D600E4D858 /* Uber_BeanTests.m */; };
-		257CB5C6228F18D700E4D858 /* Uber_BeanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CB5C5228F18D700E4D858 /* Uber_BeanUITests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +44,7 @@
 		257CB5AF228F18D600E4D858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		257CB5B0228F18D600E4D858 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		257CB5B6228F18D600E4D858 /* Uber BeanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Uber BeanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		257CB5BA228F18D600E4D858 /* Uber_BeanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Uber_BeanTests.m; sourceTree = "<group>"; };
-		257CB5BC228F18D600E4D858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		257CB5C1228F18D700E4D858 /* Uber BeanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Uber BeanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		257CB5C5228F18D700E4D858 /* Uber_BeanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Uber_BeanUITests.m; sourceTree = "<group>"; };
-		257CB5C7228F18D700E4D858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				257CB5A0228F18D500E4D858 /* Uber Bean */,
-				257CB5B9228F18D600E4D858 /* Uber BeanTests */,
-				257CB5C4228F18D700E4D858 /* Uber BeanUITests */,
 				257CB59F228F18D500E4D858 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,24 +104,6 @@
 				257CB5B0228F18D600E4D858 /* main.m */,
 			);
 			path = "Uber Bean";
-			sourceTree = "<group>";
-		};
-		257CB5B9228F18D600E4D858 /* Uber BeanTests */ = {
-			isa = PBXGroup;
-			children = (
-				257CB5BA228F18D600E4D858 /* Uber_BeanTests.m */,
-				257CB5BC228F18D600E4D858 /* Info.plist */,
-			);
-			path = "Uber BeanTests";
-			sourceTree = "<group>";
-		};
-		257CB5C4228F18D700E4D858 /* Uber BeanUITests */ = {
-			isa = PBXGroup;
-			children = (
-				257CB5C5228F18D700E4D858 /* Uber_BeanUITests.m */,
-				257CB5C7228F18D700E4D858 /* Info.plist */,
-			);
-			path = "Uber BeanUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257CB5BB228F18D600E4D858 /* Uber_BeanTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +253,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257CB5C6228F18D700E4D858 /* Uber_BeanUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
