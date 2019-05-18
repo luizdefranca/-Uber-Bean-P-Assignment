@@ -13,6 +13,7 @@
 		257CB5AB228F18D600E4D858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257CB5AA228F18D600E4D858 /* Assets.xcassets */; };
 		257CB5AE228F18D600E4D858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 257CB5AC228F18D600E4D858 /* LaunchScreen.storyboard */; };
 		257CB5B1228F18D600E4D858 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CB5B0228F18D600E4D858 /* main.m */; };
+		257CB5D5228F47FB00E4D858 /* Cafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CB5D4228F47FB00E4D858 /* Cafe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		257CB5B0228F18D600E4D858 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		257CB5B6228F18D600E4D858 /* Uber BeanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Uber BeanTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		257CB5C1228F18D700E4D858 /* Uber BeanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Uber BeanUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		257CB5D3228F47FB00E4D858 /* Cafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cafe.h; sourceTree = "<group>"; };
+		257CB5D4228F47FB00E4D858 /* Cafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cafe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				257CB5A2228F18D500E4D858 /* AppDelegate.m */,
 				257CB5A4228F18D500E4D858 /* ViewController.h */,
 				257CB5A5228F18D500E4D858 /* ViewController.m */,
+				257CB5D3228F47FB00E4D858 /* Cafe.h */,
+				257CB5D4228F47FB00E4D858 /* Cafe.m */,
 				257CB5A7228F18D500E4D858 /* Main.storyboard */,
 				257CB5AA228F18D600E4D858 /* Assets.xcassets */,
 				257CB5AC228F18D600E4D858 /* LaunchScreen.storyboard */,
@@ -236,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				257CB5D5228F47FB00E4D858 /* Cafe.m in Sources */,
 				257CB5A6228F18D500E4D858 /* ViewController.m in Sources */,
 				257CB5B1228F18D600E4D858 /* main.m in Sources */,
 				257CB5A3228F18D500E4D858 /* AppDelegate.m in Sources */,

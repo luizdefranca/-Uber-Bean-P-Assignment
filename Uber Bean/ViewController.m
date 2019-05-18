@@ -9,11 +9,13 @@
 #import "ViewController.h"
 @import MapKit;
 @import CoreLocation;
+#import "Cafe.h"
 
 
 @interface ViewController ()<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSMutableArray<Cafe*> *cafes;
 
 @end
 
@@ -23,7 +25,73 @@
     [super viewDidLoad];
     [self requestLocationPermission];
     self.locationManager.delegate = self;
+    [self requestCafes];
 
+
+}
+
+
+-(void) requestCafes {
+    NSString *key = @"8ejcA9KLdpfCPAAPUlYOojRvy6iKHB8ryuzWEyxvmpIIn26_VYN3a387cM70KjFd4fvoUpohPiJ2xA1AIo5dvpWNRSyR-w6kKu4E8ggE360EIh0fdjDxci8HsQzfXHYx";
+
+    double latitude = 43.646413;
+    double logitude = -79.402330;
+    NSString *urlString = [[NSString alloc] initWithFormat: @"https://api.yelp.com/v3/businesses/search?term=cafe&latitude=%f&longitude=%f", latitude, logitude ];
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString *value = [NSString stringWithFormat:@"Bearer %@", key];
+    [urlRequest addValue: value forHTTPHeaderField:@"Authorization"];
+//    [urlRequest addValue: @"latitude" forHTTPHeaderField:@"43.646413"];
+//    [urlRequest addValue: @"logitude" forHTTPHeaderField:@"-79.402330"];
+
+
+    NSURLSessionTask *task =
+    [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
+                                    completionHandler:^(NSData * _Nullable data,
+                                                        NSURLResponse * _Nullable response,
+                                                        NSError * _Nullable error) {
+                                        if (error) { // 1
+                                            // Handle the error
+                                            NSLog(@"error: %@", error.localizedDescription);
+                                            return;
+                                        }
+
+                                        NSError *jsonError = nil;
+
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                        if (httpResponse.statusCode != 200) {
+                                            NSLog(@"%@", httpResponse.description);
+                                            return;
+                                        }
+
+                                        if (jsonError) {
+                                            NSLog(@"Error parsing the JSON response: %@", jsonError);
+                                            return;
+                                        }
+                                        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                             options:0
+                                                                                               error:&jsonError];
+
+                                        NSArray *objet = json[@"businesses"];
+
+                                        for (NSDictionary *cafe in objet) {
+                                            Cafe *newCafe = [[Cafe alloc] initWithJSON: cafe];
+                                            [self.cafes addObject: newCafe];
+
+                                        }
+                                        
+
+                                        //update view
+                                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                                            for (Cafe *c in self.cafes) {
+//                                                NSLog(@"%@ - %@", c.name, c.id);
+//                                            }
+
+                                        }];
+                                    }];
+
+    [task resume];
 }
 
 -(void) requestLocationPermission {
