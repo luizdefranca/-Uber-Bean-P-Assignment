@@ -16,35 +16,32 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSMutableArray<Cafe*> *cafes;
-
+@property (nonatomic) CLLocation *myLocation;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cafes = [NSMutableArray new];
     [self requestLocationPermission];
     self.locationManager.delegate = self;
     [self requestCafes];
-
-
 }
 
 
 -(void) requestCafes {
     NSString *key = @"8ejcA9KLdpfCPAAPUlYOojRvy6iKHB8ryuzWEyxvmpIIn26_VYN3a387cM70KjFd4fvoUpohPiJ2xA1AIo5dvpWNRSyR-w6kKu4E8ggE360EIh0fdjDxci8HsQzfXHYx";
 
-    double latitude = 43.646413;
-    double logitude = -79.402330;
+
+    double latitude = self.myLocation.coordinate.latitude;
+    double logitude = self.myLocation.coordinate.longitude;
     NSString *urlString = [[NSString alloc] initWithFormat: @"https://api.yelp.com/v3/businesses/search?term=cafe&latitude=%f&longitude=%f", latitude, logitude ];
     NSURL *url = [NSURL URLWithString:urlString];
 
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *value = [NSString stringWithFormat:@"Bearer %@", key];
     [urlRequest addValue: value forHTTPHeaderField:@"Authorization"];
-//    [urlRequest addValue: @"latitude" forHTTPHeaderField:@"43.646413"];
-//    [urlRequest addValue: @"logitude" forHTTPHeaderField:@"-79.402330"];
-
 
     NSURLSessionTask *task =
     [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
@@ -80,13 +77,10 @@
                                             [self.cafes addObject: newCafe];
 
                                         }
-                                        
 
-                                        //update view
                                         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//                                            for (Cafe *c in self.cafes) {
-//                                                NSLog(@"%@ - %@", c.name, c.id);
-//                                            }
+                                            NSLog(@"%@", self.cafes);
+                                             [self displayCafeOnTheMap];
 
                                         }];
                                     }];
@@ -124,6 +118,11 @@
        status == kCLAuthorizationStatusAuthorizedAlways){
          [self.locationManager requestLocation];
     }
+}
+-(void)displayCafeOnTheMap{
+    [self.mapView addAnnotation: (id) self.cafes];
+    [self.mapView showAnnotations: (id) self.cafes animated: YES];
+
 }
 @end
 

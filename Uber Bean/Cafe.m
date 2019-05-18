@@ -20,7 +20,7 @@
             _name = @"Unknown";
         }
 
-        _id = json[@"id"];
+        _ID = json[@"id"];
         NSDictionary *coordinates = json[@"coordinates"];
 
         NSNumber * latitude = coordinates[@"latitude"];
@@ -32,7 +32,13 @@
 
         _category = categories[0][@"title"];
         _price = json[@"price"];
+        _coordinate = CLLocationCoordinate2DMake(_latitude, _longitude);
+        _title = _name;
+        _subtitle = _location[@"address1"];
     }
     return self;
+}
+-(NSString *) description{
+    return [[NSString alloc] initWithFormat: @"name - %@ | coordinate - %f - %f  | title - %@ | subtitle - %@", _name, _coordinate.longitude, _coordinate.latitude, _title, _subtitle];
 }
 @end
