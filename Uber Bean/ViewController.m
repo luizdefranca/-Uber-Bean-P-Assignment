@@ -12,10 +12,10 @@
 #import "Cafe.h"
 
 
-@interface ViewController ()<CLLocationManagerDelegate>
+@interface ViewController ()<CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSMutableArray<Cafe*> *cafes;
+@property (nonatomic, strong) NSMutableArray<MKAnnotationView*> *cafes;
 @property (nonatomic) CLLocation *myLocation;
 @end
 
@@ -74,7 +74,7 @@
 
                                         for (NSDictionary *cafe in objet) {
                                             Cafe *newCafe = [[Cafe alloc] initWithJSON: cafe];
-                                            [self.cafes addObject: newCafe];
+                                            [self.cafes addObject: (id) newCafe];
 
                                         }
 
@@ -120,7 +120,7 @@
     }
 }
 -(void)displayCafeOnTheMap{
-    [self.mapView addAnnotation: (id) self.cafes];
+    [self.mapView addAnnotations: (id) self.cafes];
     [self.mapView showAnnotations: (id) self.cafes animated: YES];
 
 }

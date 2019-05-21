@@ -32,13 +32,13 @@
 
         _category = categories[0][@"title"];
         _price = json[@"price"];
-        _coordinate = CLLocationCoordinate2DMake(_latitude, _longitude);
+        _coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [logitude doubleValue]);
         _title = _name;
         _subtitle = _location[@"address1"];
     }
     return self;
 }
 -(NSString *) description{
-    return [[NSString alloc] initWithFormat: @"name - %@ | coordinate - %f - %f  | title - %@ | subtitle - %@", _name, _coordinate.longitude, _coordinate.latitude, _title, _subtitle];
+    return [[NSString alloc] initWithFormat: @"name - %@ | coordinate - %f - %f  | title - %@ | subtitle -", _name, _coordinate.longitude, _coordinate.latitude, _name];
 }
 @end
